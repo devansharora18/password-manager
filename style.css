@@ -1,4 +1,11 @@
-div {
+@media (prefers-color-scheme: dark) {
+	body {
+	  background-color: black;
+	  color: white;
+	}
+      }
+
+#main {
 	width: auto;
 	height: auto;
 	border: 2px solid;
