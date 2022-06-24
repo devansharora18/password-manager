@@ -1,4 +1,4 @@
-# RUN THIS SCRIPT ONLY ONCE
+# RUN THIS SCRIPT ONLY ONCE OR YOU CAN LOSE YOUR PASSWORDS
 
 from cryptography.fernet import Fernet
 

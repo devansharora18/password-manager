@@ -75,6 +75,7 @@ def new_pass():
 
 def view_pass():
 	# Decrypts the passwords and displays it
+	print('Current services: ', userpass)
 	service = input('Enter service name: ')
 	print (decrypt(userpass[service]))
 	sys.exit()
