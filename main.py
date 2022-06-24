@@ -1,4 +1,6 @@
 from encodings import utf_8
+from tokenize import Name
+from unicodedata import name
 from cryptography.fernet import Fernet
 from passwords import userpass
 import sys
@@ -30,8 +32,8 @@ def prompt():
 	prmpt = input('Press (1) to enter password or (2) to view passwords: ')
 	while True:
 		try:
-			assert prmpt == 1 or prmpt == 2
-			if prmpt == 1:
+			assert prmpt == '1' or prmpt == '2'
+			if prmpt == '1':
 				new_pass()
 
 		except:
@@ -59,8 +61,8 @@ def new_pass():
 			service = input('Enter service name: ')
 			if service not in userpass:
 				password = bytes(input('Enter password: '))
-				f = open('user_pass.py', 'ab+')
-				f1 = open('user_pass.py', 'a+')
+				f = open('password.py', 'ab+')
+				f1 = open('password.py', 'a+')
 				f.seek(-1, os.SEEK_END)
 				f.truncate()
 				f1.write(f'	\'{service}\' : {password}, \n{curly}')
@@ -68,5 +70,9 @@ def new_pass():
 				f1.flush()
 				f.close()
 				f1.close()
+				exit()
 		except:
 			pass
+
+if __name__ == '__main__':
+	main()
