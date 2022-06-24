@@ -1,6 +1,4 @@
 from encodings import utf_8
-from tokenize import Name
-from unicodedata import name
 from cryptography.fernet import Fernet
 from passwords import userpass
 import sys
@@ -58,8 +56,8 @@ def new_pass():
 	service = input('Enter service name: ')
 	if service not in userpass:
 		password = bytes(input('Enter password: '))
-		f = open('password.py', 'ab+')
-		f1 = open('password.py', 'a+')
+		f = open('passwords.py', 'ab+')
+		f1 = open('passwords.py', 'a+')
 		f.seek(-1, os.SEEK_END)
 		f.truncate()
 		f1.write(f'	\'{service}\' : {password}, \n{curly}')
@@ -67,7 +65,6 @@ def new_pass():
 		f1.flush()
 		f.close()
 		f1.close()
-		sys.exit()
 
 if __name__ == '__main__':
 	main()
