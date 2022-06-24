@@ -8,7 +8,7 @@ key = k.read()
 k.close()
 cryption = Fernet(key)
 proceed = False
-curly = ('}')
+curly = '}'
 
 def main():
 	# Main password to secure the script
