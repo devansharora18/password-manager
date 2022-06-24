@@ -4,6 +4,12 @@ import sys
 import os
 
 key = Fernet.generate_key()
+k = open('key.key', 'wb')
+k.write(key)
+k.close()
+k1 = open('key.key', 'rb')
+key = k1.read()
+k1.close()
 cryption = Fernet(key)
 proceed = False
 curly = ('}')
@@ -31,6 +37,8 @@ def prompt():
 	assert prmpt == '1' or prmpt == '2'
 	if prmpt == '1':
 		new_pass()
+	elif prmpt == '2':
+		view_pass()
 	
 	#except:
 		#sys.exit()
@@ -54,8 +62,8 @@ print (decrypt(password))
 def new_pass():
 	service = input('Enter service name: ')
 	if service not in userpass:
-		password = input('Enter password: ')
-		password = encrypt(b'[password]')
+		password = input('Enter password: ').encode()
+		password = encrypt(password)
 		f = open('passwords.py', 'ab+')
 		f1 = open('passwords.py', 'a+')
 		f.seek(-1, os.SEEK_END)
@@ -65,6 +73,14 @@ def new_pass():
 		f1.flush()
 		f.close()
 		f1.close()
+
+def view_pass():
+	service = input('Enter service name: ')
+	
+	print (decrypt(userpass[service]))
+
+
+	sys.exit()
 
 if __name__ == '__main__':
 	main()
