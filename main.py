@@ -29,7 +29,7 @@ def prompt():
 
 def encrypt(a):
 	# Encrypts password
-	return cryption.encrypt(a)
+	return cryption.encrypt(b'[a]')
 
 def decrypt(a):
 	# Decrypts password
