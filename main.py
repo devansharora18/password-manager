@@ -2,6 +2,7 @@ from cryptography.fernet import Fernet
 from passwords import userpass
 import sys
 import os
+import pyperclip
 
 k = open('key.key', 'rb')
 key = k.read()
@@ -80,7 +81,9 @@ def view_pass():
 	print('Current services: ', userpass)
 	service = input('Enter service name: ')
 	try:
-		print (decrypt(userpass[service]))
+		print ('password:' , decrypt(userpass[service]))
+		pyperclip.copy(decrypt(userpass[service]))
+		print('Passwprd copied to clipboard')
 	except:
 		sys.exit('no service found')
 
