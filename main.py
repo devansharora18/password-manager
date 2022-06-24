@@ -3,13 +3,9 @@ from passwords import userpass
 import sys
 import os
 
-key = Fernet.generate_key()
-k = open('key.key', 'wb')
-k.write(key)
+k = open('key.key', 'rb')
+key = k.read()
 k.close()
-k1 = open('key.key', 'rb')
-key = k1.read()
-k1.close()
 cryption = Fernet(key)
 proceed = False
 curly = ('}')
