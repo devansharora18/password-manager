@@ -12,6 +12,12 @@ proceed = False
 curly = '}'
 
 def main():
+	# Deletes setup.py
+	try:
+		os.remove('setup.py')
+	except:
+		pass
+
 	# Main password to secure the script
 	root = input('Enter root password: ')
 
