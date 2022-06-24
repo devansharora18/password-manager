@@ -1,5 +1,6 @@
 from encodings import utf_8
 from cryptography.fernet import Fernet
+from passwords import userpass
 import sys
 
 key = Fernet.generate_key()
@@ -36,8 +37,14 @@ def decrypt(a):
 	# Decrypts password
 	return str(cryption.decrypt(a), 'utf8')
 
+'''
 password = encrypt(b'password')
 
 print (password)
 
 print (decrypt(password))
+'''
+
+def new_pass():
+	service = input('Enter service name: ')
+	
