@@ -29,15 +29,17 @@ def main():
 def prompt():
 	# Prompts the user for entering password or viewing them
 	prmpt = input('Press (1) to enter password or (2) to view passwords: ')
-	#try:
-	assert prmpt == '1' or prmpt == '2'
+	try:
+		assert prmpt == '1' or prmpt == '2'
+	
+	except:
+		sys.exit('invalid request')
+	
 	if prmpt == '1':
 		new_pass()
+
 	elif prmpt == '2':
 		view_pass()
-	
-	#except:
-		#sys.exit()
 
 def encrypt(a):
 	# Encrypts password
@@ -56,6 +58,7 @@ print (decrypt(password))
 '''
 
 def new_pass():
+	# It opens a file to store passwords and encrypts it
 	service = input('Enter service name: ')
 	if service not in userpass:
 		password = input('Enter password: ').encode()
@@ -71,11 +74,9 @@ def new_pass():
 		f1.close()
 
 def view_pass():
+	# Decrypts the passwords and displays it
 	service = input('Enter service name: ')
-	
 	print (decrypt(userpass[service]))
-
-
 	sys.exit()
 
 if __name__ == '__main__':
