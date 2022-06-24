@@ -15,7 +15,7 @@ def main():
 	root = input('Enter root password: ')
 
 	# Enter any password of your choice
-	root_pass = '0'
+	root_pass = ''
 
 	if root == root_pass:
 		proceed = True
