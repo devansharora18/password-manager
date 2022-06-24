@@ -1,7 +1,7 @@
 import main
 
 def test_encrypt():
-	assert main.encrypt('password') != 'password'
+	assert main.encrypt(b'password') != 'password'
 
 def test_decrypt():
 	password = main.encrypt(b'password')

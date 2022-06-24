@@ -40,4 +40,4 @@ password = encrypt(b'password')
 
 print (password)
 
-print (str(decrypt(password), 'utf8'))
+print (decrypt(password))
