@@ -1,4 +1,5 @@
 from cryptography.fernet import Fernet
+import sys
 
 key = Fernet.generate_key()
 
@@ -15,6 +16,12 @@ def main():
 
 	if root == root_pass:
 		proceed = True
+	
+	else:
+		sys.exit('Wrong password')
+
+	if proceed == True:
+		prompt()
 
 def prompt():
 	 prmpt = input('Press (1) to enter password or (2) to view passwords: ')
