@@ -17,5 +17,4 @@ def main():
 		proceed = True
 
 def prompt():
-	 prmpt = input('Press (1) to enter password or (2) to view passwords': )
-	 
+	 prmpt = input('Press (1) to enter password or (2) to view passwords: ')
