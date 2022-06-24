@@ -46,5 +46,10 @@ print (decrypt(password))
 '''
 
 def new_pass():
-	service = input('Enter service name: ')
-	password = bytes(input('Enter password: '))
+	while True:
+		try:
+			service = input('Enter service name: ')
+			if service not in userpass:
+				password = bytes(input('Enter password: '))
+		except:
+			pass
