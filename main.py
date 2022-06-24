@@ -72,13 +72,17 @@ def new_pass():
 		f1.flush()
 		f.close()
 		f1.close()
+	else:
+		sys.exit('Try a different name foe the service')
 
 def view_pass():
 	# Decrypts the passwords and displays it
 	print('Current services: ', userpass)
 	service = input('Enter service name: ')
-	print (decrypt(userpass[service]))
-	sys.exit()
+	try:
+		print (decrypt(userpass[service]))
+	except:
+		sys.exit('no service found')
 
 if __name__ == '__main__':
 	main()
