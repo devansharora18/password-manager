@@ -56,7 +56,7 @@ print (decrypt(password))
 '''
 
 def new_pass():
-	while True:
+	for i in range(5):
 		try:
 			service = input('Enter service name: ')
 			if service not in userpass:
@@ -70,7 +70,7 @@ def new_pass():
 				f1.flush()
 				f.close()
 				f1.close()
-				exit()
+				sys.exit()
 		except:
 			pass
 
