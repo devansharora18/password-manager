@@ -2,6 +2,7 @@ from encodings import utf_8
 from cryptography.fernet import Fernet
 from passwords import userpass
 import sys
+import os
 
 key = Fernet.generate_key()
 
