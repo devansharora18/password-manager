@@ -28,6 +28,14 @@ def main():
 def prompt():
 	# Prompts the user for entering password or viewing them
 	prmpt = input('Press (1) to enter password or (2) to view passwords: ')
+	while True:
+		try:
+			assert prmpt == 1 or prmpt == 2
+			if prmpt == 1:
+				new_pass()
+
+		except:
+			pass
 
 def encrypt(a):
 	# Encrypts password
