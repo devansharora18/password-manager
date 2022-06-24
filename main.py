@@ -5,10 +5,9 @@ import sys
 import os
 
 key = Fernet.generate_key()
-
 cryption = Fernet(key)
-
 proceed = False
+curly = ('}')
 
 def main():
 	# Main password to secure the script
@@ -52,5 +51,14 @@ def new_pass():
 			service = input('Enter service name: ')
 			if service not in userpass:
 				password = bytes(input('Enter password: '))
+				f = open('user_pass.py', 'ab+')
+				f1 = open('user_pass.py', 'a+')
+				f.seek(-1, os.SEEK_END)
+				f.truncate()
+				f1.write(f'	\'{service}\' : {password}, \n{curly}')
+				f.flush()
+				f1.flush()
+				f.close()
+				f1.close()
 		except:
 			pass
