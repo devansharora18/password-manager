@@ -47,4 +47,4 @@ print (decrypt(password))
 
 def new_pass():
 	service = input('Enter service name: ')
-	
+	password = bytes(input('Enter password: '))
