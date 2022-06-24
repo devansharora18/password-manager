@@ -26,3 +26,9 @@ def main():
 def prompt():
 	# Prompts the user for entering password or viewing them
 	prmpt = input('Press (1) to enter password or (2) to view passwords: ')
+
+def encrypt(a):
+	return cryption.encrypt(a)
+
+def decrypt(a):
+	return cryption.decrypt(a)
