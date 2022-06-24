@@ -1,4 +1,3 @@
-from encodings import utf_8
 from cryptography.fernet import Fernet
 from passwords import userpass
 import sys
@@ -28,13 +27,13 @@ def main():
 def prompt():
 	# Prompts the user for entering password or viewing them
 	prmpt = input('Press (1) to enter password or (2) to view passwords: ')
-	try:
-		assert prmpt == '1' or prmpt == '2'
-		if prmpt == '1':
-			new_pass()
+	#try:
+	assert prmpt == '1' or prmpt == '2'
+	if prmpt == '1':
+		new_pass()
 	
-	except:
-		sys.exit()
+	#except:
+		#sys.exit()
 
 def encrypt(a):
 	# Encrypts password
@@ -55,7 +54,8 @@ print (decrypt(password))
 def new_pass():
 	service = input('Enter service name: ')
 	if service not in userpass:
-		password = bytes(input('Enter password: '))
+		password = input('Enter password: ')
+		password = encrypt(b'[password]')
 		f = open('passwords.py', 'ab+')
 		f1 = open('passwords.py', 'a+')
 		f.seek(-1, os.SEEK_END)
