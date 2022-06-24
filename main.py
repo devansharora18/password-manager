@@ -1,3 +1,4 @@
+from encodings import utf_8
 from cryptography.fernet import Fernet
 import sys
 
@@ -29,8 +30,14 @@ def prompt():
 
 def encrypt(a):
 	# Encrypts password
-	return cryption.encrypt(b'[a]')
+	return cryption.encrypt(a)
 
 def decrypt(a):
 	# Decrypts password
-	return cryption.decrypt(a)
+	return str(cryption.decrypt(a), 'utf8')
+
+password = encrypt(b'password')
+
+print (password)
+
+print (str(decrypt(password), 'utf8'))
