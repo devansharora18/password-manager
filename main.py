@@ -30,14 +30,13 @@ def main():
 def prompt():
 	# Prompts the user for entering password or viewing them
 	prmpt = input('Press (1) to enter password or (2) to view passwords: ')
-	while True:
-		try:
-			assert prmpt == '1' or prmpt == '2'
-			if prmpt == '1':
-				new_pass()
-
-		except:
-			pass
+	try:
+		assert prmpt == '1' or prmpt == '2'
+		if prmpt == '1':
+			new_pass()
+	
+	except:
+		sys.exit()
 
 def encrypt(a):
 	# Encrypts password
@@ -56,23 +55,19 @@ print (decrypt(password))
 '''
 
 def new_pass():
-	for i in range(5):
-		try:
-			service = input('Enter service name: ')
-			if service not in userpass:
-				password = bytes(input('Enter password: '))
-				f = open('password.py', 'ab+')
-				f1 = open('password.py', 'a+')
-				f.seek(-1, os.SEEK_END)
-				f.truncate()
-				f1.write(f'	\'{service}\' : {password}, \n{curly}')
-				f.flush()
-				f1.flush()
-				f.close()
-				f1.close()
-				sys.exit()
-		except:
-			pass
+	service = input('Enter service name: ')
+	if service not in userpass:
+		password = bytes(input('Enter password: '))
+		f = open('password.py', 'ab+')
+		f1 = open('password.py', 'a+')
+		f.seek(-1, os.SEEK_END)
+		f.truncate()
+		f1.write(f'	\'{service}\' : {password}, \n{curly}')
+		f.flush()
+		f1.flush()
+		f.close()
+		f1.close()
+		sys.exit()
 
 if __name__ == '__main__':
 	main()
