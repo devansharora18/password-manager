@@ -4,25 +4,31 @@ import sys
 import os
 import pyperclip
 
-k = open('key.key', 'rb')
-key = k.read()
-k.close()
-cryption = Fernet(key)
+try:
+	k = open('key.key', 'rb')
+	key = k.read()
+	k.close()
+	cryption = Fernet(key)
+except:
+	sys.exit('Run setup.py')
+
+try:
+	f = open('password.txt', 'r')
+	password = f.read()
+	f.close
+except:
+	sys.exit('Run setup.py')
+
 proceed = False
 curly = '}'
 
 def main():
-	# Deletes setup.py
-	try:
-		os.remove('setup.py')
-	except:
-		pass
 
 	# Main password to secure the script
 	root = input('Enter root password: ')
 
 	# Enter any password of your choice
-	root_pass = ''
+	root_pass = str(password)
 
 	if root == root_pass:
 		proceed = True
@@ -80,7 +86,7 @@ def new_pass():
 		f.close()
 		f1.close()
 	else:
-		sys.exit('Try a different name foe the service')
+		sys.exit('Try a different name for the service')
 
 def view_pass():
 	# Decrypts the passwords and displays it
@@ -91,7 +97,7 @@ def view_pass():
 	try:
 		print ('password:' , decrypt(userpass[service]))
 		pyperclip.copy(decrypt(userpass[service]))
-		print('Passwprd copied to clipboard')
+		print('Password copied to clipboard')
 	except:
 		sys.exit('no service found')
 
