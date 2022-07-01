@@ -4,21 +4,31 @@ import sys
 import os
 import pyperclip
 
-try:
-	k = open('key.key', 'rb')
-	key = k.read()
+if os.stat('key.key').st_size == 0:
+	key = Fernet.generate_key()
+	k = open('key.key', 'ab')
+	k.write(key)
 	k.close()
-	cryption = Fernet(key)
-except:
-	sys.exit('Run setup.py')
 
-try:
-	f = open('password.txt', 'r')
-	password = f.read()
+else:
+	pass
+
+if os.stat('password.txt').st_size == 0:
+	password = input('Create root password: ')
+	f = open('password.txt', 'a')
+	f.write(password)
 	f.close
-except:
-	sys.exit('Run setup.py')
 
+else:
+	pass
+
+k = open('key.key', 'rb')
+key = k.read()
+k.close()
+cryption = Fernet(key)
+f = open('password.txt', 'r')
+password = f.read()
+f.close
 proceed = False
 curly = '}'
 
